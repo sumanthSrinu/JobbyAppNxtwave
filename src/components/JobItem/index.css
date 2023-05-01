@@ -1,0 +1,90 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+.linkStyle {
+  color: white;
+  text-decoration: none;
+}
+
+.jobItem {
+  background-color: #475569;
+  border-radius: 5px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 20px;
+  width: 100%;
+}
+
+.jobContext {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.locations {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.locationContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+
+  border-bottom: 2px solid white;
+}
+
+.employementLogo {
+  margin-left: 15px;
+  margin-right: 5px;
+}
+
+.locationLogo {
+  margin-right: 5px;
+}
+
+.logoandRatings {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.titleAndratingsContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.ratingsContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+
+  justify-content: flex-start;
+}
+
+.starStyle {
+  color: yellow;
+}
+
+.ratingsPara {
+  margin-left: 10px;
+  font-weight: bold;
+}
+
+.companyLogo {
+  height: 70px;
+  width: 70px;
+  margin-right: 10px;
+}

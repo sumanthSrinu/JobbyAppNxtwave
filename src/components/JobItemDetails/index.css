@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+.jobDetailsMainContainer {
+  background-color: #000000;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #ffffff;
+  font-family: Roboto;
+}
+
+.jobdetailsCard {
+  margin-top: 30px;
+  width: 90%;
+  background-color: #2c364c;
+  padding: 15px;
+}
+
+.companyLogo {
+  height: 70px;
+  width: 70px;
+}
+
+.logoAndTitle {
+  display: flex;
+  align-items: center;
+}
+.ratingsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.locations {
+  display: flex;
+}
+.top {
+  border-bottom: 2px solid #ffffff;
+}
+
+.locationMain {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.margins1 {
+  margin-right: 4px;
+}
+
+.margins2 {
+  margin-right: 12px;
+}
+
+.descriptionHeading {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-bottom: 20px;
+}
+
+.visitContainer {
+  display: flex;
+  align-items: center;
+}
+
+.anchorStyle {
+  margin-right: 5px;
+}
+
+.skillsContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.skillsItem {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.skillsLogo {
+  width: 50px;
+  height: 50px;
+  margin-right: 10px;
+}
+
+.paraStyle {
+  font-size: large;
+  width: 70%;
+}
+
+.companyLifeContext {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.similarJobsMain {
+  align-self: flex-start;
+  margin-left: 5%;
+}
+
+.similarJobsCard {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  background-color: #7e858e;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.logoAndRatings {
+  display: flex;
+}
+
+.jobsSimilarCardsContainer {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}

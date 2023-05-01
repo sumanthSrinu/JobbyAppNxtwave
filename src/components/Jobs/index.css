@@ -1,0 +1,108 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0px;
+}
+
+.profileContainer {
+  background-image: url('https://assets.ccbp.in/frontend/react-js/profile-bg.png');
+  background-size: cover;
+  width: 100%;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.lineStyle {
+  color: white;
+}
+
+.jobsMain {
+  background-color: #000000;
+}
+
+.profileAndFilters {
+  margin-top: 30px;
+  width: 20%;
+  margin-left: 40px;
+  /* background-color: red; */
+}
+
+.jobsContainer {
+  width: 100%;
+  margin: 10px;
+  padding: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+
+  color: #ffffff;
+}
+
+.checkboxItem {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin: 8px;
+  width: 100%;
+}
+
+.checkBoxContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  /* background-color: red; */
+}
+
+.checkboxContainer2 {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  /* background-color: black; */
+}
+
+.jobsPortalContainer {
+  margin-top: 30px;
+  margin-left: 15px;
+  /* background-color: red; */
+  width: 70%;
+}
+
+.searchContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 50%;
+  border: 2px solid #ffffffff;
+  height: 5%;
+}
+
+.searchInputStyle {
+  background-color: transparent;
+  border: none;
+  padding: 7px;
+  color: white;
+  width: 90%;
+}
+
+.jobsitemsContainerMain {
+  width: 100%;
+}
+
+.searchIcon {
+  background-color: #2c364c;
+
+  width: 50px;
+  height: 30px;
+}
