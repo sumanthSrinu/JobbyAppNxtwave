@@ -61,5 +61,36 @@ body {
 .nav-link {
   color: #ffffff;
   border: none;
-  text-decoration: none;
+  text-decoration: inherit;
+}
+
+.homeIcon {
+  display: none;
+}
+
+.jobsIcon {
+  display: none;
+}
+
+.textRouters {
+  display: flex;
+}
+
+@media (max-width: 576px) {
+  .homeIcon {
+    display: block;
+  }
+
+  .jobsIcon {
+    display: block;
+  }
+
+  .textRouters {
+    display: none;
+  }
+
+  .logoStyle {
+    height: 30px;
+    width: 80px;
+  }
 }

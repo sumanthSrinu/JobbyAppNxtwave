@@ -11,7 +11,7 @@ const Home = props => {
     <div className="mainContainer">
       <Header />
       <div className="textContainer">
-        <h1 className="heading">Find Job That Fits Your Life</h1>
+        <h1 className="heading">Find The Job That Fits Your Life</h1>
         <p className="paraStyle">
           Millions of people are searching for jobs, salary Information,company
           reviews,Find the job that fits your abilities and potential.

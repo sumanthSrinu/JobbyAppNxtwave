@@ -156,7 +156,7 @@ class JobItemDetails extends Component {
                   <h1>Skills</h1>
                   <ul className="skillsContainer">
                     {skillsArray.map(eachItem => (
-                      <li className="skillsItem">
+                      <li className="skillsItem" key={eachItem.id}>
                         <img
                           src={eachItem.imageUrl}
                           alt={eachItem.name}
@@ -171,7 +171,7 @@ class JobItemDetails extends Component {
                   <h1>Life at Company</h1>
                   <div className="companyLifeContext">
                     <p className="paraStyle">{companyLifeDescription}</p>
-                    <img src={companyLifeImage} />
+                    <img src={companyLifeImage} alt="company" />
                   </div>
                 </div>
               </div>

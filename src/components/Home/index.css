@@ -22,6 +22,7 @@ body {
   margin-left: 30px;
   width: 60%;
   padding: 10px;
+  /* background-color: white; */
 }
 
 .heading {
@@ -39,4 +40,14 @@ body {
   padding: 13px;
   color: #ffffff;
   font-weight: bold;
+}
+
+@media (max-width: 576px) {
+  /* .textContainer {
+    width: 100%;
+  } */
+
+  .heading {
+    font-size: 20px;
+  }
 }

@@ -72,3 +72,15 @@ body {
   font-weight: bold;
   color: #ff0b37;
 }
+
+@media (max-width: 576px) {
+  .loginContainer {
+    width: 90%;
+    height: 40%;
+  }
+
+  .loginJoblogo {
+    height: 30px;
+    width: 100px;
+  }
+}

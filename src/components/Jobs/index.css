@@ -98,6 +98,7 @@ body {
 
 .jobsitemsContainerMain {
   width: 100%;
+  /* background-color: red; */
 }
 
 .searchIcon {
@@ -105,4 +106,30 @@ body {
 
   width: 50px;
   height: 30px;
+}
+
+@media (max-width: 576px) {
+  .jobsContainer {
+    flex-direction: column;
+  }
+
+  .profileAndFilters {
+    width: 90%;
+    margin-left: 0px;
+  }
+
+  .jobsPortalContainer {
+    width: 90%;
+  }
+
+  .searchContainer {
+    width: 100%;
+  }
+
+  .jobsitemsContainerMain {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

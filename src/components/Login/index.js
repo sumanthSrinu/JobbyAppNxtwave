@@ -67,6 +67,7 @@ class Login extends Component {
           <img
             src="https://assets.ccbp.in/frontend/react-js/logo-img.png"
             alt="website logo"
+            className="loginJoblogo"
           />
           <form className="formContainer" onSubmit={this.loginClicked}>
             <div className="inputContainer">
