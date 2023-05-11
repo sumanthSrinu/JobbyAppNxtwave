@@ -54,6 +54,7 @@ class Jobs extends Component {
     profileApiStatus: true,
     isLoading: true,
     apiStatus: true,
+    searchEnabled: false,
   }
 
   componentDidMount() {
@@ -65,17 +66,33 @@ class Jobs extends Component {
     this.getJobs()
   }
 
+  //   checkboxClicked = id => {
+  //     const {checkboxFilterList} = this.state
+  //     console.log(checkboxFilterList, 'checkboxFilterList')
+  //     if (checkboxFilterList.includes(id)) {
+  //       checkboxFilterList.shift(id)
+  //     } else {
+  //       checkboxFilterList.push(id)
+  //     }
+
+  //     this.setState({checkboxFilterList})
+  //     this.getJobs()
+  //   }
   checkboxClicked = id => {
     const {checkboxFilterList} = this.state
+    console.log(checkboxFilterList, 'checkboxFilterList')
 
-    if (checkboxFilterList.includes(id)) {
-      checkboxFilterList.shift(id)
+    if (checkboxFilterList.indexOf(id) === -1) {
+      const updatedList = checkboxFilterList.concat(id)
+      this.setState({checkboxFilterList: updatedList}, () => {
+        this.getJobs()
+      })
     } else {
-      checkboxFilterList.push(id)
+      const updatedList = checkboxFilterList.filter(item => item !== id)
+      this.setState({checkboxFilterList: updatedList}, () => {
+        this.getJobs()
+      })
     }
-
-    this.setState({checkboxFilterList})
-    this.getJobs()
   }
 
   salaryFilterClicked = event => {
@@ -88,7 +105,7 @@ class Jobs extends Component {
   }
 
   searchInputChanged = event => {
-    this.setState({searchInput: event.target.value})
+    this.setState({searchInput: event.target.value, searchEnabled: true})
   }
 
   profileApiSuccess = data => {
@@ -99,8 +116,8 @@ class Jobs extends Component {
       profileImageUrl: profileObj.profile_image_url,
       shortBio: profileObj.short_bio,
     }
-
     this.setState({profileDetailsObj: redefinedProfileObj})
+    console.log(redefinedProfileObj, 'redefinedProfileObj')
   }
 
   jobsApiSuccess = data => {
@@ -154,11 +171,17 @@ class Jobs extends Component {
 
     const response = await fetch(jobsUrl, options)
     const data = await response.json()
+    console.log(data, 'data')
     if (response.ok) {
       this.jobsApiSuccess(data)
       this.setState({isLoading: false})
     } else {
       this.setState({apiStatus: false})
+    }
+    if (data && data.jobs && data.jobs.length > 0) {
+      this.setState({
+        searchEnabled: false,
+      })
     }
   }
 
@@ -169,6 +192,8 @@ class Jobs extends Component {
       isLoading,
       apiStatus,
       profileApiStatus,
+      searchEnabled,
+      checkboxFilterList,
     } = this.state
     const {name, profileImageUrl, shortBio} = profileDetailsObj
 
@@ -177,6 +202,7 @@ class Jobs extends Component {
     if (jobsList.length === 0) {
       noJobs = true
     }
+    console.log(checkboxFilterList, 'checkboxFilterList')
 
     return (
       <div className="jobsMain">
@@ -184,13 +210,13 @@ class Jobs extends Component {
         <div className="jobsContainer">
           <div className="profileAndFilters">
             <div className="profileContainer">
-              {profileApiStatus && (
-                <>
-                  <img src={profileImageUrl} alt="profile" />
-                  <h1>{name}</h1>
-                  <p>{shortBio}</p>
-                </>
-              )}
+              {/* {profileApiStatus && ( */}
+              {/* <> */}
+              <img src={profileImageUrl} alt="profile" />
+              <h1>{name}</h1>
+              <p>{shortBio}</p>
+              {/* </> */}
+              {/* )} */}
               {!profileApiStatus && <button type="button">Retry</button>}
             </div>
             <form className="checkBoxContainer">
@@ -244,6 +270,7 @@ class Jobs extends Component {
               <AiOutlineSearch
                 onClick={this.searchIconClicked}
                 className="searchIcon"
+                data-testid="searchButton"
               />
             </div>
 
@@ -258,7 +285,7 @@ class Jobs extends Component {
               </div>
             )}
 
-            {noJobs && (
+            {noJobs && searchEnabled && (
               <div>
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png "

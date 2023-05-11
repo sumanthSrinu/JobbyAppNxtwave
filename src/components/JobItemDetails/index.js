@@ -50,7 +50,7 @@ class JobItemDetails extends Component {
       name: eachItem.name,
       imageUrl: eachItem.image_url,
     }))
-
+    console.log(jobDetails.skills, 'jobDetails.skills')
     this.setState({skillsArray: redinedSkillsArray})
     this.setState({jobDetails: refinedData})
     this.setState({similarJobs: redefinedSimilarJobs})
@@ -71,6 +71,7 @@ class JobItemDetails extends Component {
 
     const response = await fetch(url, options)
     const data = await response.json()
+    console.log(data, 'dataaaaaa')
 
     if (response.ok) {
       this.apiSuccess(data)
@@ -93,7 +94,7 @@ class JobItemDetails extends Component {
       companyLifeDescription,
       companyLifeImage,
     } = jobDetails
-
+    console.log(skillsArray, 'skillsArray')
     return (
       <div className="jobDetailsMainContainer">
         <Header />
@@ -105,7 +106,7 @@ class JobItemDetails extends Component {
               alt="failure view"
             />
             <h1>Oops! Something Went Wrong</h1>
-            <p>we cannot see to find the page you are looking for</p>
+            <p>We cannot seem to find the page you are looking for</p>
             <button type="button" onClick={this.retryClicked}>
               Retry
             </button>
@@ -120,7 +121,7 @@ class JobItemDetails extends Component {
                   <img
                     src={companyLogoUrl}
                     alt={title}
-                    className="companyLogo"
+                    className="job details company logo"
                   />
                   <div>
                     <h1>{title}</h1>
@@ -139,7 +140,7 @@ class JobItemDetails extends Component {
                   </div>
 
                   <div>
-                    <h1>{packagePerAnnum}</h1>
+                    <p>{packagePerAnnum}</p>
                   </div>
                 </div>
               </div>
@@ -156,7 +157,10 @@ class JobItemDetails extends Component {
                   <h1>Skills</h1>
                   <ul className="skillsContainer">
                     {skillsArray.map(eachItem => (
-                      <li className="skillsItem" key={eachItem.id}>
+                      <li
+                        className="skillsItem"
+                        key={Math.random() * skillsArray.length}
+                      >
                         <img
                           src={eachItem.imageUrl}
                           alt={eachItem.name}
@@ -180,12 +184,12 @@ class JobItemDetails extends Component {
               <h1>Similar Jobs</h1>
               <ul className="jobsSimilarCardsContainer">
                 {similarJobs.map(eachItem => (
-                  <li className="similarJobsCard">
+                  <li className="similarJobsCard" key={eachItem.id}>
                     <div className="logoAndTitle">
                       <img
                         src={eachItem.companyLogoUrl}
-                        alt={eachItem.title}
                         className="companyLogo"
+                        alt="similar job company logo"
                       />
                       <div>
                         <h1>{eachItem.title}</h1>

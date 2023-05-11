@@ -24,7 +24,11 @@ const JobItem = props => {
       <li className="jobItem">
         <div className="jobContext">
           <div className="logoandRatings">
-            <img src={companyLogoUrl} alt={title} className="companyLogo" />
+            <img
+              className="companyLogo"
+              src={companyLogoUrl}
+              alt="company logo"
+            />
             <div className="titleAndratingsContainer">
               <h1>{title}</h1>
 
