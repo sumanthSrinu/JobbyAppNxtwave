@@ -120,8 +120,8 @@ class JobItemDetails extends Component {
                 <div className="logoAndTitle">
                   <img
                     src={companyLogoUrl}
-                    alt={title}
-                    className="job details company logo"
+                    alt="job details company logo"
+                    className="companyLogo"
                   />
                   <div>
                     <h1>{title}</h1>

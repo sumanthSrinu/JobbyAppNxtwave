@@ -54,7 +54,6 @@ class Jobs extends Component {
     profileApiStatus: true,
     isLoading: true,
     apiStatus: true,
-    searchEnabled: false,
   }
 
   componentDidMount() {
@@ -105,7 +104,7 @@ class Jobs extends Component {
   }
 
   searchInputChanged = event => {
-    this.setState({searchInput: event.target.value, searchEnabled: true})
+    this.setState({searchInput: event.target.value})
   }
 
   profileApiSuccess = data => {
@@ -178,11 +177,11 @@ class Jobs extends Component {
     } else {
       this.setState({apiStatus: false})
     }
-    if (data && data.jobs && data.jobs.length > 0) {
-      this.setState({
-        searchEnabled: false,
-      })
-    }
+    // if (data && data.jobs && data.jobs.length > 0) {
+    //   this.setState({
+    //     searchEnabled: false,
+    //   })
+    // }
   }
 
   render() {
@@ -192,7 +191,7 @@ class Jobs extends Component {
       isLoading,
       apiStatus,
       profileApiStatus,
-      searchEnabled,
+
       checkboxFilterList,
     } = this.state
     const {name, profileImageUrl, shortBio} = profileDetailsObj
@@ -267,11 +266,15 @@ class Jobs extends Component {
                 className="searchInputStyle"
                 onChange={this.searchInputChanged}
               />
-              <AiOutlineSearch
+
+              <button
+                type="button"
                 onClick={this.searchIconClicked}
-                className="searchIcon"
                 data-testid="searchButton"
-              />
+                className="searchIcon"
+              >
+                <AiOutlineSearch />
+              </button>
             </div>
 
             {isLoading && (
@@ -285,7 +288,7 @@ class Jobs extends Component {
               </div>
             )}
 
-            {noJobs && searchEnabled && (
+            {noJobs && (
               <div>
                 <img
                   src="https://assets.ccbp.in/frontend/react-js/no-jobs-img.png "
