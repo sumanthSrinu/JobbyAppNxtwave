@@ -1,4 +1,5 @@
 import {Component} from 'react'
+import Loader from 'react-loader-spinner'
 import {AiFillStar} from 'react-icons/ai'
 import {GoLocation} from 'react-icons/go'
 import {CgToolbox} from 'react-icons/cg'
@@ -8,7 +9,13 @@ import Header from '../Header'
 import './index.css'
 
 class JobItemDetails extends Component {
-  state = {jobDetails: {}, similarJobs: [], skillsArray: [], apiStatus: true}
+  state = {
+    jobDetails: {},
+    similarJobs: [],
+    skillsArray: [],
+    apiStatus: true,
+    isLoading: true,
+  }
 
   componentDidMount() {
     this.getJobDetails()
@@ -57,6 +64,8 @@ class JobItemDetails extends Component {
   }
 
   getJobDetails = async () => {
+    this.setState({isLoading: true})
+
     const {match} = this.props
     const {params} = match
     const {id} = params
@@ -71,7 +80,7 @@ class JobItemDetails extends Component {
 
     const response = await fetch(url, options)
     const data = await response.json()
-    console.log(data, 'dataaaaaa')
+    this.setState({isLoading: false})
 
     if (response.ok) {
       this.apiSuccess(data)
@@ -81,7 +90,13 @@ class JobItemDetails extends Component {
   }
 
   render() {
-    const {jobDetails, similarJobs, skillsArray, apiStatus} = this.state
+    const {
+      jobDetails,
+      similarJobs,
+      skillsArray,
+      apiStatus,
+      isLoading,
+    } = this.state
     const {
       companyLogoUrl,
       title,
@@ -99,6 +114,12 @@ class JobItemDetails extends Component {
       <div className="jobDetailsMainContainer">
         <Header />
 
+        {isLoading && (
+          <div className="loader-container" data-testid="loader">
+            <Loader type="ThreeDots" color="#ffffff" height="50" width="50" />
+          </div>
+        )}
+
         {!apiStatus && (
           <div>
             <img
@@ -113,7 +134,7 @@ class JobItemDetails extends Component {
           </div>
         )}
 
-        {apiStatus && (
+        {apiStatus && !isLoading && (
           <>
             <div className="jobdetailsCard">
               <div className="top">

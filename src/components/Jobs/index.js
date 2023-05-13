@@ -170,10 +170,10 @@ class Jobs extends Component {
 
     const response = await fetch(jobsUrl, options)
     const data = await response.json()
-    console.log(data, 'data')
+    this.setState({isLoading: false})
+
     if (response.ok) {
       this.jobsApiSuccess(data)
-      this.setState({isLoading: false})
     } else {
       this.setState({apiStatus: false})
     }
@@ -252,7 +252,9 @@ class Jobs extends Component {
                       key={eachItem.salaryRangeId}
                       name="radio"
                     />
-                    <label>{eachItem.label}</label>
+                    <label htmlFor={eachItem.salaryRangeId}>
+                      {eachItem.label}
+                    </label>
                   </li>
                 ))}
               </ul>
